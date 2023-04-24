@@ -1,0 +1,22 @@
+.radio-btns{
+    display: flex;
+    align-items: center;
+    height: 60px;
+    
+    p{
+        font-weight:600;
+    }
+    
+    .mat-radio-group{
+        width: 100%;
+        
+        mat-radio-button {
+            width: 50%;
+            text-align: center;
+        }
+    }
+}
+
+.mat-standard-chip{
+    font-size: 13px;
+}

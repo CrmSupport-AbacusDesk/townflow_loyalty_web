@@ -1,0 +1,183 @@
+<!-- <div class="loader" *ngIf = "loading_list">
+  <div class="loding-logo">
+    <mat-spinner></mat-spinner>
+  </div>
+</div> -->
+
+<div class="main-container">
+  <div class="offer-container">
+    <div class="container">
+      <form name="addSurvey" (ngSubmit)="f.form.valid && saveSurvey(f) " #f="ngForm" novalidate autocomplete="off">
+        <div class="row " >
+          <div class="col s6 ">
+            <div class="sprate-box ">
+              <div class="full-offer">
+                <div class="top-heading">
+                  <h2>SURVEY INFORMATION</h2>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col s6">
+                  <div class="option-field">
+                    <div class="control-field radio-btns">
+                      <p>Type</p>
+                      <mat-radio-group name="survey_for" [(ngModel)] = "addSurvey.survey_for" #survey_for="ngModel" required="true">
+                        <mat-radio-button value="Plumber" color="primary">Plumber</mat-radio-button>
+                 
+                      </mat-radio-group>
+                    </div>
+                  </div>
+                </div>
+                <div class="col s6">
+                  <div class="option-field">
+                    <div class="control-field">
+                      <mat-form-field class="cs-input">
+                        <input matInput placeholder="Title" name="title" [(ngModel)] = "addSurvey.title" #title="ngModel" required>
+                      </mat-form-field>  
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col s6">
+                  <div class="option-field">
+                    <div class="control-field">
+                      <mat-form-field class="cs-input">
+                        <input matInput [matDatepicker]="pickerFrom" placeholder="Date From" [(ngModel)]="addSurvey.start_date"  name="start_date" [min]="date1"  required readonly>
+                        <mat-datepicker-toggle matSuffix [for]="pickerFrom"></mat-datepicker-toggle>
+                        <mat-datepicker #pickerFrom></mat-datepicker>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+                <div class="col s6">
+                  <div class="option-field">
+                    <div class="control-field">
+                      <mat-form-field class="cs-input">
+                        <input matInput [matDatepicker]="pickerTo" placeholder="Date To" [(ngModel)]="addSurvey.end_date"  name="end_date" [min]="date1"  required readonly>
+                        <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
+                        <mat-datepicker #pickerTo></mat-datepicker>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="sprate-box mt15">
+              <div class="full-offer">
+                <div class="top-heading">
+                  <h2>AREA WISE SELECTION</h2>
+                </div>
+              </div>
+              <div class="main-pd pb15">
+                <div class="territory-info">
+                  <div class="head">
+                    <h2>STATE</h2>
+                    <mat-checkbox class="fix-check" [(ngModel)]="addSurvey.allStates" (change)="allState()"  name="allStates"  value="true"></mat-checkbox>
+                  </div>
+                  <div class="cs-checkbox">
+                    <div class="checkbox-outer">
+                      <section  class="checkbox-inner">
+                        <ng-container  *ngFor = "let val of states;let i = index">
+                          <mat-checkbox class="check-list" [(ngModel)]="val.selected" [name]="'state'+i"  (change)="setState($event, val.state_name)">{{val.state_name}}</mat-checkbox>
+                        </ng-container>
+                      </section >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col s6 ">
+            <div class="sprate-box ">
+              <div class="full-offer">
+                <div class="top-heading">
+                  <h2>SURVEY QUESTION & ANSWER</h2>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col s12">
+                  <div class="option-field">
+                    <div class="control-field relative">
+                      <mat-form-field class="cs-input">
+                        <input matInput placeholder="Question" class="pr150" name="question" [(ngModel)] = "surveyQue.question" #question="ngModel">
+                      </mat-form-field>  
+                      
+                      <a mat-raised-button color="primary" class="fix-btns"  (click)="surveyQue.question && surveyQue.question!='' ? addQuestion() : ''">
+                        Add Question <i class="material-icons font18 rotate-icons">subdirectory_arrow_left</i>
+                      </a>
+                    </div>
+                  </div>
+                  
+                  
+                  <!-- *ngIf="question?.length" -->
+                  <mat-accordion class="cs-mat-accordion" >
+                    <mat-expansion-panel *ngFor="let row of questionData; let i = index">
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                          {{row.question}}
+                          <a class="accordion-action default" (click)="deleteQue(i)"> <i class="material-icons">delete</i></a>
+                        </mat-panel-title>
+                      </mat-expansion-panel-header>
+                      <div class="panel-body">
+                        <div class="option-field">
+                          <div class="control-field relative">
+                            <mat-form-field class="cs-input">
+                              <input matInput  class="pr150" value={{row.question}} [readonly]="!edit_question">
+                            </mat-form-field>  
+                            
+                            <a mat-raised-button color="primary" class="fix-btns" style="bottom: 7px;" *ngIf="!edit_question" (click)="edit_question = !edit_question">
+                              Edit Question <i class="material-icons font18">edit</i>
+                            </a>
+
+                            <a mat-raised-button color="primary" class="fix-btns" style="bottom: 7px;" *ngIf="edit_question" (click)="edit_question = !edit_question">
+                              Add Question <i class="material-icons font18">edit</i>
+                            </a>
+
+                            
+                          </div>
+                        </div>
+                        
+                        <div class="option-field">
+                          <div class="control-field relative">
+                            <mat-form-field class="cs-input">
+                              <input matInput placeholder="Answer" class="pr150" name="answer" [(ngModel)] = "surveyAns.answer" #answer="ngModel">
+                            </mat-form-field>  
+                            
+                            <a mat-raised-button color="primary" class="fix-btns" style="bottom: 7px;"   (click)="surveyAns.answer && surveyAns.answer!='' ? addAnswer(i) : ''">
+                              Add Answer <i class="material-icons font18 rotate-icons">subdirectory_arrow_left</i>
+                            </a>
+                          </div>
+                        </div>
+                        
+                        
+                        <div class="survey-ans" *ngIf="row.answer.length">
+                          <ol type="A">
+                            <li *ngFor="let anwerRow of row.answer; let k = index">{{anwerRow.answer}}  <a class="accordion-action" (click)="delAns(i,k)"> <i class="material-icons">delete</i></a></li>
+                          </ol>
+                        </div>
+                      </div>
+                    </mat-expansion-panel>
+                </mat-accordion>
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12">
+          <!-- [ngClass]="{loading: savingData}" -->
+          <div class="save un-save"  >
+            <!-- [disabled]="savingData" -->
+            <button mat-button   >SAVE</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+</div>
