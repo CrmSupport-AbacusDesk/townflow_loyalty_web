@@ -28,7 +28,7 @@ export class DeactiveStatusComponent implements OnInit {
   {
     this.deactive.created_by=this.db.datauser.id;
     this.deactive.login_id=this.db.datauser.id;
-    this.db.post_rqst( {'deactive':this.deactive,'checked' : this.deactive.checked, 'id' :this.deactive.id ,'login_id' : this.db.datauser.id},'offer/deactiveStatus')
+    this.db.post_rqst( { 'deactive':this.deactive,'checked' : this.deactive.checked, 'id' :this.deactive.id ,'login_id' : this.db.datauser.id},'offer/deactiveStatus')
     .subscribe( d => {
       this.dialog.success( 'Status successfully Change');
       this.dialogRef.close(true);

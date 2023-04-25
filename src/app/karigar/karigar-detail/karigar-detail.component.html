@@ -80,7 +80,7 @@
                                                 </div>
                                                 <div class="right-cont">
                                                     <p>Date of Birth</p>
-                                                    <span>{{getData.dob  | date : 'dd MMM yyyy'}}</span>
+                                                    <span *ngIf="getData.dob != '0000-00-00'">{{getData.dob  | date : 'dd MMM yyyy'}}</span>
                                                 </div>
                                             </figure>
                                             

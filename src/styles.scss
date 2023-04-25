@@ -8619,7 +8619,7 @@ mat-icon
 
 .prnt_prt {
     height: 140px !important;
-    border: 2px solid #000;
+    border: 2px solid #ff5a00;
     justify-content: space-between;
     margin-top: 4px !important;
 }
@@ -8645,15 +8645,7 @@ h2.hed_mr {
     height: 146px;
 }
 
-.lft_sd {
-    position: absolute;
-    right: 0;
-    top: 0;
-    background-color: #fff;
-}
-.hdr_wdt {
-    width: 400px;
-}
+
 
 
 .mdl_hd {
@@ -8671,7 +8663,7 @@ p.md_prs {
 }
 
 button.grn_btn.mat-button {
-    bottom: 78px!important;
+    bottom: 50px!important;
 }
 
 .pn_er {
@@ -8690,4 +8682,19 @@ li.ttl_cpn span {
     width: 137px;
     height: 138px;
     object-fit: contain;
+}
+// .cdk-global-overlay-wrapper {
+  
+//     justify-content: end !important;
+// }
+
+
+.lft_sd {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: #fff;
+}
+.hdr_wdt {
+    width: 400px;
 }
