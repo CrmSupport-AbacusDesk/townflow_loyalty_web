@@ -70,17 +70,24 @@
                                     </mat-form-field>  
                                 </div>
                             </div>
-                            <!-- <div class="col s3">
+                            <div class="col s3">
                                 <div class="control-field">
                                     <mat-form-field class="cs-input">
                                         <input matInput placeholder="Min Gift Redeem (%)" name="min_gif_per" (keypress)="number($event)" [(ngModel)]="refer.min_gif_per" >
                                     </mat-form-field>  
                                 </div>
-                            </div> -->
+                            </div>
                             <div class="col s3">
                                 <div class="control-field">
                                     <mat-form-field class="cs-input">
                                         <input matInput placeholder="Birthday Points" (keypress)="number($event)" name="birthday_points" [(ngModel)]="refer.birthday_points">
+                                    </mat-form-field>  
+                                </div>
+                            </div>
+                            <div class="col s3">
+                                <div class="control-field">
+                                    <mat-form-field class="cs-input">
+                                        <input matInput placeholder="Cash Redeem Points Limit" (keypress)="number($event)" name="cash_redemption_limit" [(ngModel)]="refer.cash_redemption_limit">
                                     </mat-form-field>  
                                 </div>
                             </div>
@@ -95,13 +102,7 @@
                                     </mat-form-field>  
                                 </div>
                             </div> -->
-                            <div class="col s3">
-                                <div class="control-field">
-                                    <mat-form-field class="cs-input">
-                                        <input matInput placeholder="Cash Redeem Points Limit" (keypress)="number($event)" name="cash_redemption_limit" [(ngModel)]="refer.cash_redemption_limit">
-                                    </mat-form-field>  
-                                </div>
-                            </div>
+                           
                         </div>
                     </div>
                 </div>
