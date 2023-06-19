@@ -20,21 +20,30 @@
       <div id="print_card">
         <div id='qr_code_container' *ngFor="let row of print_coupon">
           <div
-            style="padding:0px;height: 100.5905511811px; width: 377.9527559055px; border-radius: 10px;margin: 0 auto;display: flex;background-color: #fff; position: relative;">
+            style="padding:0px;height: 113.38582677px; width: 321.25984252px; border-radius: 10px;margin: 0 auto;display: flex; ">
             <div style="width: 250px;">
-              <h5
+              <!-- <h5
                 style="font-family: 'Roboto', sans-serif;border-bottom: 1px solid #000;font-size: 14px;margin: 0;margin-bottom: 3px;padding-bottom: 3px;">
                 <span style="display:block;font-family: 'Roboto', sans-serif;margin: 0;">Town Flow</span>
-              </h5>
-              <p style="font-family: 'Roboto', sans-serif;font-size: 12px;margin:0">Date of pkg. :{{row.date_created}}</p>
-              <p style="font-family: 'Roboto', sans-serif;font-size: 12px;margin:0">Coupon Code :{{row.coupon_code}}</p>
-              <p style="font-family: 'Roboto', sans-serif;font-size: 12px;margin:0">Brand Name :{{row.product_point_group}}</p>
+              </h5> -->
+
+              <div class="twn_img">
+                <img src="https://apps.abacusdesk.com/townflow/dd_api/app/uploads/Org/123.png">
+               
+              </div>
+
+
+              <!-- <p style="font-family: 'Roboto', sans-serif;font-size: 12px;margin:0">{{row.date_created}}</p> -->
+              <p style="font-family: 'Roboto', sans-serif;font-size: 10px;margin:0;padding-top: 4px;">PLUMBER VOUCHER <br>REWARD {{row.product_point_group}}</p>
+          
+              <p style="font-family: 'Roboto', sans-serif;font-size: 6px;margin:0;padding-top: 10px;">PLEASE SCAN OR CODE AFTER INSTALLATION OF PRODUCT.</p>
             </div>
             <div style="text-align: right">
-              <div class="qr-img" style="width: 105px;overflow: hidden;height: 105px;">
+              <div class="qr-img" style="width: 105px;overflow: hidden;height: 105px;margin-right: 30px;">
                 <ngx-qrcode [elementType]="elementType" value="{{row.coupon_code}}" cssClass="aclass"
                   errorCorrectionLevel="L">
                 </ngx-qrcode>
+                <p style="font-family: 'Roboto', sans-serif;font-size: 6px;margin:0;padding-top: 4px;">{{row.coupon_code}}</p>
               </div>
             </div>
           </div>
@@ -51,15 +60,27 @@
           <div class="col s3" *ngFor="let row of print_coupon">
             <div class="prnt_prt">
               <div class="prt_txt">
-                <label><strong>Date:</strong> {{row.date_created}} </label><br>
+                <div class="twn_img">
+                  <img src="assets/logo.png">
+                 
+                </div>
+
+
+                <p style="font-family: 'Roboto', sans-serif;font-size: 13px;margin:0"><strong>PLUMBER VOUCHER <br>REWARD {{row.product_point_group}}</strong></p>
+              
+                <p style="font-family: 'Roboto', sans-serif;font-size: 9px;margin:0;padding-top: 5px;">PLEASE SCAN OR CODE AFTER INSTALLATION OF PRODUCT.</p>
+
+
+                <!-- <label><strong>Date:</strong> {{row.date_created}} </label><br>
                 <label><strong>Coupon Code:</strong> {{row.coupon_code}} </label><br>
-                <label><strong>Brand Name:</strong> {{row.product_point_group}}</label>
+                <label><strong>Brand Name:</strong> {{row.product_point_group}}</label> -->
               </div>
               <div class="prnt_brc">
 
                 <div>
                   <ngx-qrcode [elementType]="elementType" value="{{row.coupon_code}}" cssClass="aclass" errorCorrectionLevel="L">
                   </ngx-qrcode>
+                  <p style="font-family: 'Roboto', sans-serif;font-size: 7px;margin:0;padding-top: 3px;">{{row.coupon_code}}</p>
                 </div>
               </div>
             </div>

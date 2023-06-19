@@ -28,6 +28,7 @@
 
         myurl = 'https://apps.abacusdesk.com/townflow/dd_api/';
         uploadUrl = "https://apps.abacusdesk.com/townflow/dd_api/app/uploads/";
+        uploadUrl1 = "https://apps.abacusdesk.com/townflow/dd_api/app/uploads/Org/";
         
    
 

@@ -8620,7 +8620,7 @@ mat-icon
 .prnt_prt {
     height: 140px !important;
     border: 2px solid #ff5a00;
-    justify-content: space-between;
+    justify-content: space-around;
     margin-top: 4px !important;
 }
 .prt_txt {
@@ -8698,3 +8698,15 @@ li.ttl_cpn span {
 .hdr_wdt {
     width: 400px;
 }
+
+
+
+   .twn_img img {
+          width: 50px !important;
+      }
+      
+      .aclass img {
+        width: 70px !important;
+        height: 60px !important;
+    }
+    

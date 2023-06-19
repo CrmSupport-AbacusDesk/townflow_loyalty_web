@@ -11,13 +11,15 @@ import { ActivatedRoute } from '@angular/router';
 export class AddCouponDetailComponent implements OnInit {
 
   value = 'Techiediaries';
-  print_coupon: any = {};
+  print_coupon: any = [];
   coupon_id: any;
   id: any;
+  uploadUrlOrg:any =''
 
 
   constructor(public db: DatabaseService,  public dialog: DialogComponent,private route: ActivatedRoute) {
     this.route.params.subscribe(params => {
+      this.uploadUrlOrg = db.uploadUrl1;
       console.log(params)
       this.coupon_id =  params.couponid
       console.log(this.coupon_id);
@@ -66,6 +68,17 @@ export class AddCouponDetailComponent implements OnInit {
           height: 100%;
         }
         
+        .twn_img img {
+          width: 50px !important;
+      }
+      
+      .aclass img {
+        width: 70px !important;
+        height: 60px !important;
+    }
+    
+
+
         body
         {
           font-family: 'arial';
