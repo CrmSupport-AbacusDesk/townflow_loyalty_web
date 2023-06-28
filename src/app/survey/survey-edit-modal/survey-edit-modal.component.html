@@ -1,0 +1,155 @@
+<div class="cs-model" *ngIf="dataValue == 1">
+  <div class="model-head mdl_hd">
+    <p class="md_prs">Edit Survey Informaion</p>
+    <div class="close-icon">
+      <button mat-button [mat-dialog-close]="false" ><i class="material-icons">clear</i></button>
+    </div>
+  </div>
+  
+  <div class="model-body padding10">
+    <form name="editSurvey" (ngSubmit)="f.form.valid && updateSurvey(f) " #f="ngForm" novalidate autocomplete="off">
+      <div class="row">
+        <div class="col s6">
+          <div class="option-field">
+            <div class="control-field radio-btns">
+              <p>Type</p>
+              <mat-radio-group name="servey_for" [(ngModel)] = "editSurvey.servey_for" #servey_for="ngModel">
+                <mat-radio-button value="Plumber" color="primary">Plumber</mat-radio-button>
+         
+              </mat-radio-group>
+            </div>
+          </div>
+        </div>
+        <div class="col s6">
+          <div class="option-field">
+            <div class="control-field">
+              <mat-form-field class="cs-input">
+                <input matInput placeholder="Title" name="title" [(ngModel)] = "editSurvey.title" #title="ngModel" required>
+              </mat-form-field>  
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s6">
+          <div class="option-field">
+            <div class="control-field">
+              <!-- <input type="date" [(ngModel)]="editSurvey.static" #static="ngModel"  name="static"  required > -->
+              <mat-form-field class="cs-input">
+                <input matInput [matDatepicker]="pickerFrom" placeholder="Date From" [(ngModel)]="editSurvey.valid_from"  name="valid_from" [min]="date1"  required readonly>
+                <mat-datepicker-toggle matSuffix [for]="pickerFrom"></mat-datepicker-toggle>
+                <mat-datepicker #pickerFrom></mat-datepicker>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div class="col s6">
+          <div class="option-field">
+            <div class="control-field">
+              <mat-form-field class="cs-input">
+                <input matInput [matDatepicker]="pickerTo" placeholder="Date To" [(ngModel)]="editSurvey.valid_to"  name="valid_to" [min]="date1"  required readonly>
+                <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
+                <mat-datepicker #pickerTo></mat-datepicker>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12">
+          <div class="save un-save mt30"  >
+            <button mat-button   class="mb0">Update</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<div class="cs-model" *ngIf="dataValue == 2">
+  <div class="model-head mdl_hd">
+    <p class="md_prs">Edit AREA WISE SELECTION</p>
+    <div class="close-icon">
+      <button mat-button [mat-dialog-close]="false" ><i class="material-icons">clear</i></button>
+    </div>
+  </div>
+  
+  <div class="model-body padding10">
+    <form name="editSurveyState" (ngSubmit)="f.form.valid && updateSurveyArea(f) " #f="ngForm" novalidate autocomplete="off">
+      <div class="territory-info">
+        <div class="head">
+          <h2>STATE</h2>
+          <mat-checkbox class="fix-check" [(ngModel)]="editSurveyState.allStates" (change)="allState($event,index,'all')"  name="allStates"  value="true"></mat-checkbox>
+        </div>
+        <div class="cs-checkbox">
+          <div class="checkbox-outer">
+            <section  class="checkbox-inner">
+              <ng-container  *ngFor = "let val of states;let i = index">
+                <mat-checkbox class="check-list"   [(ngModel)]="val.selected" [name]="'state'+i"  (change)="setState($event, val.state_name)">{{val.state_name}}</mat-checkbox>
+                <!-- <mat-checkbox class="check-list"  (change)="setState($event, val.state_name)"  [checked]="checked(val.state_name)">{{val.state_name}}</mat-checkbox> -->
+              </ng-container>
+            </section >
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12">
+          <div class="save un-save mt30"  >
+            <button mat-button   class="mb0">Update</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+
+<div class="cs-model" *ngIf="dataValue == 3">
+  <div class="model-head">
+    <p>SURVEY INFORMATION</p>
+    <div class="close-icon">
+      <button mat-button [mat-dialog-close]="false" ><i class="material-icons">clear</i></button>
+    </div>
+  </div>
+  
+  <div class="model-body">
+    <div class="css-table" *ngIf="surverUser.length">
+      <div class="sticky-header">
+        <div class="header">
+          <table>
+            <tr>
+              <th class="w30">&nbsp;</th>
+              <th>Name</th>
+              <th class="w120">Type</th>
+              <th class="w120">Mobile Number</th>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="css-table" *ngIf="surverUser.length">
+      <div class="table-container">
+        <div class="table-body">
+          <table>
+            <tr *ngFor="let row of surverUser; let i = index">
+              <td class="w30">{{i+1}}</td>
+              <td>{{row.first_name}}</td>
+              <td class="w120">{{row.type}}</td>
+              <td class="w120">{{row.mobile_no}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="no-data"*ngIf="!surverUser.length">
+      <div class="no-img">
+        <img src="assets/result-not-found.png" style="width: auto;" height="300px">
+      </div>
+    </div>
+  </div>
+  
+</div>
