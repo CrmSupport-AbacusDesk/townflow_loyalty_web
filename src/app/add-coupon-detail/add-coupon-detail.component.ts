@@ -54,7 +54,7 @@ export class AddCouponDetailComponent implements OnInit {
           margin-bottom: 0px
         }
         @page { 
-          margin: 0.07in 0.1in 0.00in;  
+          margin: 0.00in 0.00in 0.00in 0.00in;  
         }
         
         .bar-code-img, .barcode{
@@ -75,6 +75,9 @@ export class AddCouponDetailComponent implements OnInit {
       .aclass img {
         width: 70px !important;
         height: 60px !important;
+        object-fit: cover !important;
+        padding-right: 15px !important;
+
     }
     
 

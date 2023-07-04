@@ -16,12 +16,19 @@
 
 
   <div class="container">
-    <div class="card card-statistics" style="width: 50%;margin-left: 250px;" hidden>
+    <div class="card card-statistics" style="width: 50%;margin-left: 250px;"  hidden>
       <div id="print_card">
         <div id='qr_code_container' *ngFor="let row of print_coupon">
           <div
-            style="padding:0px;height: 113.38582677px; width: 321.25984252px; border-radius: 10px;margin: 0 auto;display: flex; ">
-            <div style="width: 250px;">
+            style="padding:0px;height: 132.28346457px; width: 340.15748031px; border-radius: 10px;margin: 0 auto; ">
+
+
+<div style="display: flex;justify-content: space-around;">
+
+
+
+
+            <div style="padding-top: 10px;">
               <!-- <h5
                 style="font-family: 'Roboto', sans-serif;border-bottom: 1px solid #000;font-size: 14px;margin: 0;margin-bottom: 3px;padding-bottom: 3px;">
                 <span style="display:block;font-family: 'Roboto', sans-serif;margin: 0;">Town Flow</span>
@@ -34,19 +41,36 @@
 
 
               <!-- <p style="font-family: 'Roboto', sans-serif;font-size: 12px;margin:0">{{row.date_created}}</p> -->
-              <p style="font-family: 'Roboto', sans-serif;font-size: 10px;margin:0;padding-top: 4px;">PLUMBER VOUCHER <br>REWARD {{row.product_point_group}}</p>
+              <p style="font-family: 'Roboto', sans-serif;    font-size: 12px;
+              line-height: 17px;margin:0;padding-top: 4px;font-weight: bolder;">PLUMBER VOUCHER <br>REWARD {{row.product_point_group}}</p>
           
-              <p style="font-family: 'Roboto', sans-serif;font-size: 6px;margin:0;padding-top: 10px;">PLEASE SCAN OR CODE AFTER INSTALLATION OF PRODUCT.</p>
+              <!-- <p style="font-family: 'Roboto', sans-serif;font-size: 10px;margin:0;padding-top: 10px;"><strong>
+
+            PLEASE SCAN OR CODE AFTER INSTALLATION OF PRODUCT.  </strong></p> -->
             </div>
-            <div style="text-align: right">
-              <div class="qr-img" style="width: 105px;overflow: hidden;height: 105px;margin-right: 30px;">
+            <div style="text-align: right;height: 132.28346457px;padding-top: 10px;padding-right: 10px;">
+              <div class="qr-img" style="width: 105px;overflow: hidden;height: 105px;">
                 <ngx-qrcode [elementType]="elementType" value="{{row.coupon_code}}" cssClass="aclass"
                   errorCorrectionLevel="L">
                 </ngx-qrcode>
-                <p style="font-family: 'Roboto', sans-serif;font-size: 6px;margin:0;padding-top: 4px;">{{row.coupon_code}}</p>
+                <p style="font-family: 'Roboto', sans-serif;font-size: 8px;margin:0;padding-top: 4px;"><strong>{{row.coupon_code}}</strong></p>
               </div>
             </div>
+
+
           </div>
+
+          <p style="font-family: 'Roboto', sans-serif;font-size: 10px;margin:0;margin-top: -39px;
+          padding-left: 17px;"><strong>
+
+            PLEASE SCAN OR CODE AFTER INSTALLATION OF PRODUCT.  </strong></p>
+
+          </div>
+
+
+
+
+
         </div>
       </div>
     </div>
